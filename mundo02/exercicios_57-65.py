@@ -75,11 +75,81 @@ Seu programa devera realizar a operaca solicitada em cada caso.
 
 #LER 2 VALORES
 '''
+#RESOLUCAO 59
+'''
+
+import time
+
+while True:
+  numb1 = int(input('Digite um valor: '))
+  numb2 = int(input('Digite um valor: '))
+  menu = int(input('Agora escolha uma das opcoes abaixo!\n'
+                   '(1) Somar.\n'
+                   '(2) Multiplicar.\n'
+                   '(3) Comparacao de qual é o maior.\n'
+                   '(4) Mudar os numeros.\n'
+                   '(5) Sair do programa.\n'))
+  if menu == 1:
+      resultado_soma = numb1 + numb2
+      print(f'A soma dos valores {numb1} e {numb2} deu {resultado_soma}')
+  if menu == 2:
+      resultado_multiplicacao = numb1*numb2
+      print(f'A multiplicacao dos valores {numb1} e {numb2} deu {resultado_multiplicacao}')
+  if menu == 3:
+      if numb1 == numb2 or numb2 == numb1:
+          print('Os valores sao iguais.')
+      else:
+          comparacao = [numb1, numb2]
+          comparacao.sort()
+          print(f'O maior numero, da comparcao é {comparacao[-1]} e o menor e {comparacao[0]}')
+  if menu == 4:
+      novo_numero1 = int(input('Digite o novo numero:'))
+      numb1 = novo_numero1
+      novo_numero2 = int(input('Digite o novo numero:'))
+      numb2 = novo_numero2
+  if menu == 5:
+      print('Saindo do programa...')
+      time.sleep(2)
+      print('Programa encerrado.')
+      break
+  if menu >= 6 or menu == 0:
+      print('Resposta invalida. Tente novamente.\n'
+            'Digite 1-5.')
+
+'''
 
 #60
 '''
 Faca um programa que leia um numero qualquer e mostre seu fatorial.
 ex: 5! = 5x4x3x2x1 = 120
+'''
+#RESOLUCAO RAPIDA
+'''   
+#Da para fazer pela biblioteca
+numero = int(input('Digite um numero e veja o seu fatorial: '))
+fatorial = math.factorial(numero)
+print(fatorial)
+'''
+#RESOLUCAO 60
+''' 
+import math
+
+numero = int(input('Digite um numero e veja o seu fatorial: '))
+
+if numero == 0:
+    fatorial = 1
+
+elif numero > 0:
+    print(f'O fatorial de {numero} pode ser achado assim: ')
+    fatorial = math.factorial(numero)
+    num = numero
+    while num > 0:
+        print(num, end='')
+        #para eliminar o ultimo x e colocar um PONTO
+        print('x' if num > 1 else '.', end='')
+        num -= 1
+
+print(f'\nO resultado da fotorial de {numero}! foi {fatorial}. ')
 '''
 
 #61
@@ -87,11 +157,56 @@ ex: 5! = 5x4x3x2x1 = 120
 Refaca o desafio 051, lendo o primeiro termo e a razao de uma PA, 
 mostrando os 10 primeiros termos da progressao usando a estrutura 'whlie'
 '''
+#RESOLUCAO 61
+''' 
+
+#PA => an = a1 + (n-1) * r
+numero = int(input('Numero: '))
+raz = int(input('Razao: '))
+n = 1
+if numero > 0:
+    while n < 11:
+        #a condicao de repeticao do while eh `n` 
+        pa = numero + (n - 1) * raz
+        print(f'({n}) - Resultado: {pa}.')
+        n+=1
+        
+'''
 
 #62
 '''
 Melhore o desafio 061, perguntando para o usuario se ele quer mostrar mais alguns termos.
 O programa encerra quando ele disser que quer mostrar 0 termos.
+'''
+#RESOLUCAO 62
+''' 
+
+#PA => an = a1 + (n-1) * r
+
+import time
+
+while True:
+    resposta = str(input('Voce deseja entrar no programa? \n (sim/nao):   '))
+    resposta_maiuscula = resposta.upper()
+    print(resposta_maiuscula)
+
+    if resposta_maiuscula == 'SIM':
+        numero = int(input('Numero: '))
+        raz = int(input('Razao: '))
+        n = 1
+        if numero > 0:
+            while n < 11:
+                #a condicao de repeticao do while eh `n`
+                pa = numero + (n - 1) * raz
+                print(f'({n}) - Resultado: {pa}.')
+                n+=1
+        print('\n Aqui esta o resultado. \n')
+    else:
+        print('Encerrando o programa...')
+        time.sleep(2)
+        print('Programa encerrado!')
+        break
+
 '''
 
 #63
@@ -103,6 +218,7 @@ https://www.youtube.com/watch?v=w7yn1_Mfu0E&t=367s
 '''
 #TENTATIVA hehe
 '''
+
 lista = [0,1]
 lista2 = []
 #lista[0] = 0
@@ -119,18 +235,9 @@ if c > 0:
             lista2.append(n)
 
 lista.extend(lista2)
-'''
-#RESOLUCAO GPT
-'''
-lista_de_fibonacci = [0,1]
 
-n = (int(input('Digite o numero: ')))
-
-while len(lista_de_fibonacci) < n:
-    fibonacci = lista_de_fibonacci[-1] + lista_de_fibonacci[-2]
-    lista_de_fibonacci.append(fibonacci)
-print(f'A sequencia de fibonacci vai ate {lista_de_fibonacci[-1]} e a sequencia completa e {lista_de_fibonacci}')
 '''
+
 #TEM COMO CHAMAR A FUCAO DE UMA BILBIOTECA QUE JA VEM PRONTA!
 '''
 
@@ -153,9 +260,6 @@ print(resultado)  # Saída: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 
 '''
 
-
-
-
 #64
 '''
 Crie um programa que leia varios numeros inteiros pelo teclado. O programa
@@ -165,6 +269,30 @@ No final, mostre quantos numeros foram digitados e qual foi a soma entre eles.
 
 #valor final
 #quantidade de numeros digitados 
+'''
+
+#RESOLUCAO 64
+'''
+#decidi fazer de um jeito diferente
+tentativas = 0
+somatorio = []
+
+while True:
+    numero = int(input('Digite um numero:'))
+
+    if numero != 999:
+        somatorio.append(numero)
+        if True:
+            tentativas += 1
+        soma = sum(somatorio)
+    elif numero == 999:
+        print('Programa encerrado')
+        break
+
+print(f'Voce adicionou valores por {tentativas} vezes')
+print(f'A soma dos valores deu {soma}')
+#print(somatorio)
+
 '''
 
 #65
