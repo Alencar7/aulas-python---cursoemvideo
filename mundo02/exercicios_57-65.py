@@ -305,7 +305,35 @@ O programa deve perguntar ao usuario se ele quer ou nao continuar a digitar os v
 # menor valor
 # maior valor
 '''
+#RESOLUCAO 65
+'''
+lista = []
+repeticao = 0
 
+while True:
+    var = int(input('Deseja adicionar algum numero, digite 1.\n'
+                    'Deseja fechar o programa, digite 0.\n'
+                    '> '))
+    if var != 0:
+        numero = int(input('Digite o numero que voce deseja adicionar.\n'
+                           '>'))
+        lista.append(numero)
+        repeticao += 1
+    elif var == 0:
+        print('Encerrando programa.')
+        break
+
+soma = sum(lista)
+media = soma/repeticao
+maior_numero = max(lista)
+menor_numero = min(lista)
+
+print(f'{repeticao} > Esta foi a quantidade de vezes que voce adicionou um numero\n'
+      f'{soma} > Este foi o somatorio dos numeros que voce adicionou.\n'
+      f'{media} > Esta foi a \n.'
+      f'{maior_numero} foi o maior numero.\n'
+      f'{menor_numero} foi o menor numero. ')
+'''
 
 
 
