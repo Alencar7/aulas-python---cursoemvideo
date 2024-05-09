@@ -14,6 +14,31 @@ No final, mostre quantos numeros foram digitados e qual foi a soma entre eles.
 Faca um programa que mostre a tabuada de varios numeros, um de cada vez, para cada valor digitado
 pelo usuario. O programa sera interrompido quando o numero solicitado for negativo.
 '''
+#RESOLUCAO 67
+'''
+while True:
+    condicao = int(input('Digite 1 para escrever um numero.\n'
+                         'Digite -1 para parar o programa.\n'
+                         '[1/-1]> '))
+    if condicao > 0:
+        while  True:
+            numero = int(input('Digite o numero que voce deseja colocar.\n'
+                  '>'))
+            if numero >= 0:
+                print(f'A tabuada do numero {numero} é:\n')
+                for c in range (1,11):
+                    resultado = c * numero
+                    print(f'{c} x {numero} = {resultado}. \n')
+                    c += 1
+            else:
+                print('Programa encerrado.')
+                break
+    else:
+        print('Programa encerrado.')
+        break
+    break
+
+'''
 
 #DESAFIO 68
 '''
