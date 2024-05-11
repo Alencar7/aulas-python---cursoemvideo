@@ -61,6 +61,58 @@ a) quantas pessoas tem mais de 18 anos
 b) quantos homens foram cadastrados
 c) quantas mulheres tem menos de 20 anos
 '''
+# RESOLUCAO 69
+''' 
+lista = []
+
+idade = int
+nome = str
+sexo = str
+quantidade_homem = 0
+quantidade_mulher = 0
+
+print("SEJA BEM VIND@ AO SISTEMA DE CADASTROS! \n")
+
+
+while True:
+    var = int(input('Para entrar aperte [1].\n'
+                    'Para sair aperte [0]\n'
+                    '> '))
+    if var == 1:
+        print('Por favor, coloque seus dados.')
+        idade = int(input('Digite sua idade.\n'
+                          '> '))
+        nome = str(input('Digite seu nome.\n'
+                         '> '))
+        sexo = str(input('Digite seu sexo.\n'
+                         '> '))
+        pessoa = (idade, nome, sexo)
+        lista.append(pessoa)
+        # break
+    elif var == 0:
+        print(lista)
+        break
+
+# a) pessoas com +18
+for pessoa in lista:
+    idade, nome, sexo = pessoa
+    if idade > 18:
+        print(f'Idade = {idade}. Nome = {nome}. Sexo = {sexo}. ')
+
+# b) quantidade de homens cadastrados
+for pessoa in lista:
+    idade, nome, sexo = pessoa
+    quantidade_homem += 1 if sexo == 'masculino' else 0
+    print(f'Quantidade de homens cadastrados: {quantidade_homem}.\n')
+
+# c) quantas mulheres tem menos de 20 anos
+for pessoa in lista:
+    idade, nome, sexo = pessoa
+    quantidade_mulher += 1 if sexo == 'feminino' and idade < 20 else 0
+    print(f'Quantidade de mulheres que tem menos de 20 anos: {quantidade_mulher}.')
+
+'''
+
 
 #DESAFIO 70
 '''
