@@ -122,6 +122,49 @@ a) qual e o total gasto na compra
 b) quantos produtos custam mais de R$1000
 c) qual e o nome do produto mais barato
 '''
+#RESOLUCAO 70
+'''
+lista = []
+
+valor_total = 0
+preco1k = 0
+preco_barato = None
+produto_barato = None
+
+while True:
+    condicao = int(input(' Bem vindo! Vamos cadastrar suas compras!\n'
+                         ' Pressione [1] para entrar.\n'
+                         ' Pressione [0] para sair ou encerrar. \n'
+                         ' > '))
+    if condicao == 1:
+        produto = str(input('Digite o produto:\n > '))
+        preco = int(input('Digite o valor:\n > '))
+        compras = (produto, preco)
+        lista.append(compras)
+    else:
+        print('Encerrando...')
+        break
+
+# a) total gasto
+for compras in lista:
+    produto, preco = compras
+    valor_total += preco
+print(f' O valor total gasto foi de {valor_total}')
+
+# b) produtos +1k
+for compras in lista:
+    produto, preco = compras
+    preco1k += 1 if preco > 1000 else 0
+print(f' A quantidade de produtos que custam mais de 1.000 sao {preco1k}')
+
+# c) nome do produto mais barato /// da para fazer ordenando a lista 'sort' e pegando o menor valor dela
+for compras in lista:
+    produto, preco = compras
+    if preco_barato is None or preco < preco_barato: #'None' para ficar sem valor
+        preco_barato = preco
+        produto_barato = produto
+print(f'O produto com o menor valor foi o {produto_barato}, que custou {preco_barato}')
+''' 
 
 #EXERCICIO 71
 '''
