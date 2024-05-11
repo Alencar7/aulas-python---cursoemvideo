@@ -182,7 +182,21 @@ total de 1 cedulas de: 20
 total de 1 cedulas de: 10
 total de 4 cedulas de: 1
 '''
+#RESOLUCAO 71   
+'''
 
+valor = int(input('Digite o valor a ser sacado:\n > '))
+notas = [50, 20, 10, 1] #a ordem vai fazer o for e o if funcionarem!
+
+if valor > 0:
+    for c in notas:
+        quantidade = valor // c #divisao inteira 
+        if quantidade > 0:
+            print(f'o total de notas de R${c}: {quantidade} unidade(s).\n'
+                  f'(total {c * quantidade} reais)')
+            valor -= quantidade * c
+            
+'''
 
 
 
