@@ -12,7 +12,6 @@ media e igual a 9
 situacao e igual a aprovado
 '''
 #Resolucao 90
-'''
 
 lista = []
 dados = {}
@@ -41,7 +40,7 @@ for pessoa in lista:
     else:
         print(f'{pessoa['nome']} esta reprovado!')
     print('-=' * 34)
-'''
+
 
 
 #Desafio 91
@@ -52,7 +51,7 @@ em ordem, sabendo que o vencedor tirou o maior numero no dado.
 # from operator import itemgetter
 '''
 #Resolucao 91 ----------- #coisas de fora da aula #colocar o dicionario em ordem
-'''
+
 from random import randint
 from time import sleep
 from operator import itemgetter
@@ -75,7 +74,7 @@ for posicao, v in enumerate(ranking):
     #enumerate e para listas e o items() ara dicionarios
     print(f'{posicao+1} lugar: {v[0]} com {v[1]}')
     sleep(1.5)
-'''
+
 
 
 #Desafio 92
@@ -85,15 +84,66 @@ cadastre-os(com idade) em um dicionario se por acaso a CTPS for diferente
 de zero, o dicionario recebera tambem o ano de contratacao e o salario.
 Calcule e acrescente, alem da idade, com quantos anos a pessoa vai se aposentar.
 '''
+#Resolucao 92
+
+
+from datetime import datetime
+#datetime.now().year => ano atual
+
+dados = {}
+
+dados['nome'] = str(input('Nome: '))
+nascimento = int(input('Ano de nascimento: '))
+dados['idade'] = datetime.now().year - nascimento
+dados['ctps'] = int(input('Carteira de trabalho: (0 nao tem) '))
+if dados['ctps'] != 0:
+    dados['contratacao'] = int(input('Ano de contratacao: '))
+    dados['salario'] = float(input('Salario(R$): '))
+    #aposentadoria = idade + (ano de contrataco + tempo de trabalho )- ano atual)
+    dados['aposentadoria'] = dados['idade'] + ((dados['contratacao'] + 35) - datetime.now().year)
+#print(dados)
+print('-='*30)
+for nome_chave, valor_dentro_do_espaco in dados.items():
+    print(f' - {nome_chave} tem o valor {valor_dentro_do_espaco}')
 
 #Desafio 93
 '''
-Crie um programa que gerencie o aproveitamento de um jogador de futebom. 
+Crie um programa que gerencie o aproveitamento de um jogador de futebol. 
 O programa vai ler o nome do jogador e quantas partidas ele jogou. Depois
 vai ler a quantidade de gols feitos em cada partida. No final, tudo isso
 será guardado em um dicionario, incluindo o total de gols feitos durante
 o campeonato.
 '''
+#Resolucao 93
+
+pasta_jogador = []
+dados_jogador = {}
+jogo = []
+
+dados_jogador['nome'] = str(input('Nome: '))
+jogos = int(input('Quantidade de jogos: '))
+dados_jogador['jogos'] = jogos
+for c in range (1, jogos+1):
+    print(f'No jogo {c} total de gol(s): ')
+    for cc in range(1):
+        #jogo.clear()
+        gol = int(input('>'))
+        jogo.append(gol)
+    dados_jogador['quantidade_gol'] = jogo
+    total = sum(jogo)
+    dados_jogador['total_gol'] = total
+
+pasta_jogador.append(dados_jogador.copy())
+print(pasta_jogador)
+
+for k, n in dados_jogador.items():
+    print(f' {k} = {n}')
+    print('-='*10)
+n = 0
+for ccc in range (jogos):
+    print(f'No jogo {ccc} o jogador {dados_jogador['nome']} fez {jogo[n]} gol(s).')
+    n += 1
+
 
 #Desafio 94
 '''
