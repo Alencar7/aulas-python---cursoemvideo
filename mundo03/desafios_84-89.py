@@ -9,7 +9,6 @@ c) Uma listagem com as pessoas mais leves
 - while = varias pessoas
 '''
 # Resolucao 84
-'''
 
 lista = list()
 dados = list()
@@ -60,7 +59,7 @@ for p in lista:
     if p[1] <= (media/contador):
         print(f'> {p[0]}')
         
-'''
+
 
 # Desafio 85
 '''
@@ -95,7 +94,7 @@ print(f'LISTA IMPARES: {impar}')
 print(F'LISTA PARES: {par}')
 '''
 #Resolucao 85
-'''
+
 
 lista = [[],[]]
 valor = 0
@@ -113,7 +112,7 @@ print(F'LISTA PARES: {lista[0]}')
 lista[1].sort()
 print(f'LISTA IMPARES: {lista[1]}')
 
-'''
+
 
 # Desafio 86 -> relativamente facil -> depois que aprende fica facil msm :)
 '''
@@ -125,7 +124,7 @@ ex:
 [7][8][9]
 '''
 #Resolucao 86
-'''
+
 matriz = [[0,0,0],[0,0,0],[0,0,0]]
 #matriz = [[lista],[coluna],[var]]
 
@@ -139,7 +138,7 @@ for linha in range(0, 3):
         print(f'[{matriz[linha][coluna]}]', end='')
     print() # esse print vai quebrar a linha
 
-'''
+
 
 # Desafio 87 -> depende do 86
 '''
@@ -149,7 +148,7 @@ b) a soma dos valores da 3 coluna
 c) o maior valor da segunda linha
 '''
 #Resolucao 87
-'''
+
 matriz = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 for linha in range(0, 3):
@@ -185,7 +184,7 @@ maximo = matriz[1]
 valorr = max(maximo)
 print(valorr)
 
-'''
+
 
 # Desafio 88
 '''
@@ -198,7 +197,7 @@ jogo 1: [4,5,6,7,8,9]
 jogo n: ...
 '''
 #Resolucao 88
-'''
+
 import random
 jogos = []
 numero_sort = list()
@@ -214,7 +213,7 @@ for n in range(0,var):
         jogos.append(numero_sort[:])
         numero_sort.clear()
     print(f'Jogo {n + 1}: {jogos}')
-'''
+
 
 
 # Desafio 89
@@ -239,7 +238,7 @@ ex:
 - exit
 '''
 # Resolucao 89
-'''
+
 lista = []
 dados = list()
 contador = 0
@@ -275,4 +274,4 @@ for nn in lista:
     linha += 1
     print('-' * 35)
 
-'''
+
